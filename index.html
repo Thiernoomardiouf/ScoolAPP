@@ -27,73 +27,76 @@
         <h1>SCHOOL APP</h1>
     </head>
     <main>
-        <div class="container-fluid">
-            <div class="row d-flex">
-                <div class="col-4 m-5">
-                    <div class="col">
-                        <form>
-                            <div class="mb-3">
-                                <label for="nom" class="form-label">Nom</label>
-                                <input
-                                    type="text"
-                                    class="form-control"
-                                    id="nom"
-                                    name="nom"
-                                    placeholder="Votre nom......"
-                                    aria-describedby="nomHelp"
-                                />
-                                <label for="nom" class="form-label">Prenom</label>
-                                <input
-                                    type="text"
-                                    class="form-control"
-                                    id="prenom"
-                                    name="titre"
-                                    placeholder="Votre prenom......"
-                                    aria-describedby="prenomHelp"
-                                />
-                                <label for="nom" class="form-label">Niveau d'étude</label>
-                                <select class="form-select" aria-label="Default select example" id="niveau">
-                                    <option selected>Choisir votre niveau d'étude</option>
-                                    <option value="Master 2">Master 2</option>
-                                    <option value="Master 1">Master 1</option>
-                                    <option value="Licence 3">Licence 3</option>
-                                    <option value="Licence 3">Licence 2</option>
-                                    <option value="Licence 1">Licence 1</option>
-                                </select>
-                                <div id="formeHelp" class="form-text">
-                                    Merci de donner de informations 
-                                     pour ce formulaire
-                                </div>
+        <div class="row">
+            <div class="col-4 m-3">
+                    <form>
+                        <div class="mb-3">
+                            <label for="nom" class="form-label">Nom</label>
+                            <input
+                                type="text"
+                                class="form-control"
+                                id="nom"
+                                name="nom"
+                                placeholder="Votre nom......"
+                                aria-describedby="nomHelp"
+                            />
+                            <label for="nom" class="form-label">Prenom</label>
+                            <input
+                                type="text"
+                                class="form-control"
+                                id="prenom"
+                                name="titre"
+                                placeholder="Votre prenom......"
+                                aria-describedby="prenomHelp"
+                            />
+                            <label for="nom" class="form-label">Niveau d'étude</label>
+                            <select class="form-select" aria-label="Default select example" id="niveau">
+                                <option selected>Choisir votre niveau d'étude</option>
+                                <option value="Master 2">Master 2</option>
+                                <option value="Master 1">Master 1</option>
+                                <option value="Licence 3">Licence 3</option>
+                                <option value="Licence 3">Licence 2</option>
+                                <option value="Licence 1">Licence 1</option>
+                            </select>
+                            <div id="formeHelp" class="form-text">
+                                Merci de donner de informations 
+                                    pour ce formulaire
                             </div>
-                            <div class="mb-3">
-                                <label for="biographie" class="form-label"
-                                    >Biographie</label
-                                >
-                                <textarea
-                                    class="form-control"
-                                    id="biographie"
-                                    name="suggestion"
-                                    rows="3"
-                                ></textarea>
-                                <p id="limite-text">
-                                    Contenu saisi
-                                    <span id="text-progress">00 </span> / 130
-                                </p>
-                                <p id="text-restant"></p>
-                            </div>
-                            <button
-                                type="submit"
-                                id="btn-ajouter"
-                                class="btn btn-danger float-end"
-                                style="background-color: #3dca50"
+                        </div>
+                        <div class="mb-3">
+                            <label for="biographie" class="form-label"
+                                >Biographie</label
                             >
-                                Ajouter
-                            </button>
-                        </form>
-                    </div>
-                </div>
-                <div class="col-8" id="list-apprenants"></div>
+                            <textarea
+                                class="form-control"
+                                id="biographie"
+                                name="suggestion"
+                                rows="3"
+                            ></textarea>
+                            <p id="limite-text">
+                                Contenu saisi
+                                <span id="text-progress">00 </span> / 130
+                            </p>
+                            <p id="text-restant"></p>
+                        </div>
+                        <button
+                            type="submit"
+                            id="btn-ajouter"
+                            class="btn btn-danger float-end"
+                            style="background-color: #3dca50"
+                        >
+                            Ajouter
+                        </button>
+                    </form>
             </div>
+            <div class="col-8 m-3 p-3" id="list-apprenants">
+                <div></div>
+                <button type="submit" id="btn-sauvegarder" class="btn btn-danger float-end" 
+                        style="background-color: #4240df">
+                        Sauvegarder
+               </button>
+            </div>
+               
         </div>
     </main>
     <footer></footer>
