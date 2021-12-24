@@ -4,14 +4,13 @@ const inputPrenom = document.querySelector("#prenom")
 const inputNIveau = document.querySelector("#niveau")
 const inputBiographie = document.querySelector("#biographie")
 
-export function creerCarte(infos){
+export function creerCarte(infos, position){
     const idButtonModifier = "btn_valider-" + Math.random()
     const idButtonSupprimer = "btn_refuser-" + Math.random()
     const idCard = "btn-card" + Math.random()
     const idBio = "vtn-bio" + Math.random()
 
-    const propositionElement = document.querySelector("#list-apprenants")
-    propositionElement.insertAdjacentHTML(
+    position.insertAdjacentHTML(
         "beforeend",
         `
         <div id =${idCard}>
@@ -23,7 +22,7 @@ export function creerCarte(infos){
           <div class="col-md-8">
             <div class="card-body">
               <h5 class="card-title">${infos.prenom}   ${infos.nom}</h5>
-              <p class="card-text" id =${idBio}>${infos.bio}.</p>
+              <p class="card-text" id =${idBio}>${infos.biographie}.</p>
               <p class="card-text" style="color: green"><small class="text-muted">${infos.niveau}</small></p>
               <a href="#" class="card-link" id=${idButtonModifier}>Modifier</a>
               <a href="#" class="card-link" id=${idButtonSupprimer}>Supprimer</a>
@@ -45,7 +44,7 @@ export function creerCarte(infos){
           event.preventDefault();
           inputNom.value = infos.nom
           inputPrenom.value = infos.prenom
-          inputBiographie.value = infos.bio
+          inputBiographie.value = infos.biographie
           inputNIveau.value = infos.niveau
 
           const editButton = document.createElement("button");
