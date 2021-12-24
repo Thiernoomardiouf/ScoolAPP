@@ -1,3 +1,11 @@
-h1{
+h1, h3{
     text-align: center;
+    color: #3dca50;
+}
+.img-fluid{
+    width: 40px;
+    height: 40px;
+}
+p, h5{
+    color: black;
 }

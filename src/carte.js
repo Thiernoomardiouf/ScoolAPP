@@ -1,3 +1,4 @@
+import { tab} from "./app"
 // Recuperation des élément du formulaire
 const inputNom = document.querySelector("#nom")
 const inputPrenom = document.querySelector("#prenom")
@@ -8,21 +9,20 @@ export function creerCarte(infos, position){
     const idButtonModifier = "btn_valider-" + Math.random()
     const idButtonSupprimer = "btn_refuser-" + Math.random()
     const idCard = "btn-card" + Math.random()
-    const idBio = "vtn-bio" + Math.random()
 
     position.insertAdjacentHTML(
         "beforeend",
         `
         <div id =${idCard}>
-        <div class="card mb-3 m-2" style="max-width: 1000px; max-height: 200px; border-radius: 15px;" >
+        <div class="card mb-3 m-2" style="max-width: 1000px; max-height: 230px; border-radius: 15px;" >
         <div class="row g-0">
           <div class="col-md-4">
-            <img src="..." class="img-fluid rounded-start" alt="...">
+          <img src="src/image/moi.png" class="img-fluid rounded-start w-100" alt="..." style="width: 100px; height: 200px; border-radius: 5px;">
           </div>
           <div class="col-md-8">
             <div class="card-body">
               <h5 class="card-title">${infos.prenom}   ${infos.nom}</h5>
-              <p class="card-text" id =${idBio}>${infos.biographie}.</p>
+              <p class="card-text">${infos.biographie}.</p>
               <p class="card-text" style="color: green"><small class="text-muted">${infos.niveau}</small></p>
               <a href="#" class="card-link" id=${idButtonModifier}>Modifier</a>
               <a href="#" class="card-link" id=${idButtonSupprimer}>Supprimer</a>
@@ -38,7 +38,6 @@ export function creerCarte(infos, position){
       const bouttonModifier = document.getElementById(idButtonModifier)
       const bouttonSupprimer = document.getElementById(idButtonSupprimer)
       const idCarde = document.getElementById(idCard) 
-      const Bio = document.getElementById(idBio)
      
       bouttonModifier.addEventListener("click", (event)=>{
           event.preventDefault();
@@ -64,6 +63,7 @@ export function creerCarte(infos, position){
       bouttonSupprimer.addEventListener("click", (event)=>{
         event.preventDefault()
         idCarde.parentNode.removeChild(idCarde);
+        tab.splice()
         return false;
       })
 
