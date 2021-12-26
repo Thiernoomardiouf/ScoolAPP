@@ -20,7 +20,7 @@ export function creerApprenants(infos, position){
         <div class="card mb-3 m-2" style="width: 500px; max-height: 230px; border-radius: 15px;" >
         <div class="row g-0">
           <div class="col-md-4">
-          <img src="src/image/moi.png" class="img-fluid rounded-start w-100" alt="..." style="width: 100px; height: 200px; border-radius: 5px;">
+          <img src="src/image/moi.png" class="img-fluid rounded-start w-100 h-100" alt="..." style="border-radius: 5px;">
           </div>
           <div class="col-md-8">
             <div class="card-body">
@@ -51,10 +51,10 @@ export function creerApprenants(infos, position){
             `
             <h2 class="text-center p-5"> Les détails de l'apprenant à voir ci-dessous </h2>
 
-            <div class="card mb-3 m-2" style="max-width: 1500px; height: 400px; border-radius: 15px; border: none" >
+            <div class="card mb-3 m-2" style="max-width: 1500px; max-height: 300px; border-radius: 15px; border: none" >
             <div class="row g-0">
               <div class="col-md-4">
-              <img src="src/image/moi.png" class="img-fluid rounded-start w-100" alt="..." style="width: 100px; height: 400px; border-radius: 5px;">
+              <img src="src/image/moi.png" class="img-fluid rounded-start w-100 h-50" alt="..." style=" border-radius: 5px;">
               </div>
               <div class="col-md-8 text-center my-2">
                 <div class="card-body">

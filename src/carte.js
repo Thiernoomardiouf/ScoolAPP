@@ -17,7 +17,7 @@ export function creerCarte(infos, position){
         <div class="card mb-3 m-2" style="max-width: 1000px; max-height: 230px; border-radius: 15px;" >
         <div class="row g-0">
           <div class="col-md-4">
-          <img src="src/image/moi.png" class="img-fluid rounded-start w-100" alt="..." style="width: 100px; height: 200px; border-radius: 5px;">
+          <img src="src/image/moi.png w-100 h-100" class="img-fluid rounded-start w-100" alt="..." style=" border-radius: 5px;">
           </div>
           <div class="col-md-8">
             <div class="card-body">
