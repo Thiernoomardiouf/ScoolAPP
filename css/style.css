@@ -6,6 +6,34 @@ h1, h3{
     width: 40px;
     height: 40px;
 }
-p, h5{
+h5{
     color: black;
+    font-size: 23px;
+}
+p{
+    font-size: 20px;
+    color: black;
+}
+form label{
+    font-size: 30px;
+}
+header div{
+    background-color: #9493ad;
+    height: 60px;
+}
+:placeholder-shown{
+    font-size: 20px;
+}
+select{
+    font-size: 20px;
+    height: 60px;
+}
+select option{
+    font-size: 20px;
+}
+input{
+    height: 60px;
+}
+textarea{
+    height: 300px;
 }

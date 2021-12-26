@@ -1,9 +1,9 @@
+const API_KEY ="eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJyb2xlIjoiYW5vbiIsImlhdCI6MTY0MDMyMTM3NCwiZXhwIjoxOTU1ODk3Mzc0fQ.4OG4cncqE_T0C_IQfAqDkvJz66PpQXP-NPxF7_joiKQ"
+const API_URL = "https://qrhfvjqerilazypfxbcu.supabase.co/rest/v1/infos"
+
 import { valider } from './valideForm.js';
 import { creerCarte } from './carte.js';
 import { creerApprenants } from './apprenants.js';
-
-const API_KEY ="eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJyb2xlIjoiYW5vbiIsImlhdCI6MTY0MDMyMTM3NCwiZXhwIjoxOTU1ODk3Mzc0fQ.4OG4cncqE_T0C_IQfAqDkvJz66PpQXP-NPxF7_joiKQ"
-const API_URL = "https://qrhfvjqerilazypfxbcu.supabase.co/rest/v1/infos"
 
 // Recuperation des élément du formulaire
 const inputNom = document.querySelector("#nom")
@@ -18,6 +18,35 @@ const principal = document.querySelector("main")
 
 //Tableau pour stocker les cartes
 export let tab = []
+
+// VERIFICATION DES MOTS SAISIS
+inputBiographie.addEventListener("input", (event) => {
+  const longueurMax = 130
+  const contenuSaisi = inputBiographie.value
+  const longueurSaisi = contenuSaisi.length
+  const reste = longueurMax - longueurSaisi
+
+  //actualiser le dom pour afficher le nombre
+  const paragraphCompteur = document.getElementById("limite-text")
+  const compteurText = document.getElementById("text-progress")
+  const restantText = document.getElementById("text-restant")
+  const btnSuggestion = document.getElementById("btn-ajouter")
+  compteurText.textContent = longueurSaisi
+  restantText.textContent = " Il vous reste " + reste
+
+  //changer couleur
+
+  if (reste < 0) {
+    paragraphCompteur.style.color = "#ce0033"
+    btnSuggestion.disabled = true
+  } else if (reste <= 16) {
+    paragraphCompteur.style.color = "yellow"
+    btnSuggestion.disabled = false
+  } else {
+    paragraphCompteur.style.color = "#00000"
+    btnSuggestion.disabled = false
+  }
+})
 
 // On n'ecoute l'événment sur le formulaire
 btnAjouter.addEventListener("click", (event)=> {
@@ -65,13 +94,17 @@ btnSauvegarder.addEventListener("click", (event)=>{
    principal.innerHTML = "" 
    // on creer un tutre
    const titre = document.createElement("h3")
+   titre.classList.add("p-5")
    titre.innerText = "La liste des apprenants"
    principal.appendChild(titre)
 
    const div = document.createElement("div")
-   titre.appendChild(div)
-   div.classList.add("text-center")
+
    div.classList.add("m-5")
+   div.style.flexWrap = "wrap"
+   div.classList.add("d-flex")
+
+   titre.appendChild(div)
 
 
 
