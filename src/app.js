@@ -59,7 +59,15 @@ btnAjouter.addEventListener("click", (event)=> {
     const inputNIveauSaisi = inputNIveau.value
     
     // Vérificaation des informations du formulaire
-    valider(); 
+    // valider(); 
+    if (inputPrenomSaisi.trim().length < 4 || inputNomSaisi.trim().length < 4 || inputBiographieSaisi.trim().length < 8 || inputNIveauSaisi.trim().length < 3) {
+      inputNom.classList.add("invalid")
+      inputPrenom.classList.add("invalid")
+      inputNIveau.classList.add("invalid")
+      inputBiographie.classList.add("invalid")
+      alert("Merci de saisir des informations correctes")
+      return
+    }
     
     // Création de l'element à mettre dans la carte 
     const nouvelleInfos = {

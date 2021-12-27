@@ -49,9 +49,9 @@ export function creerApprenants(infos, position){
           principal.insertAdjacentHTML(
             "beforeend",
             `
-            <h2 class="text-center p-5"> Les détails de l'apprenant à voir ci-dessous </h2>
+            <h2 class="text-center p-3"> Les détails de l'apprenant à voir ci-dessous </h2>
 
-            <div class="card mb-3 m-2" style="max-width: 1500px; max-height: 300px; border-radius: 15px; border: none" >
+            <div class="card mb-3 m-5" style="max-width: 1500px; max-height: 280px; border-radius: 15px; border: none" >
             <div class="row g-0">
               <div class="col-md-4">
               <img src="src/image/moi.png" class="img-fluid rounded-start w-100 h-50" alt="..." style=" border-radius: 5px;">
@@ -69,8 +69,8 @@ export function creerApprenants(infos, position){
           
           `
           )
-          console.log("AAAA")
           
+          //On affiche la progression des compétences 
           principal.insertAdjacentHTML(
             "afterend",
               `<div class= "m-5">
@@ -79,7 +79,7 @@ export function creerApprenants(infos, position){
                   </div>
                   <br>
                   <div class="progress h-100">
-                    <div class="progress-bar progress-bar-striped bg-secondary" role="progressbar" style="width: 25%; height: 30px; font-size: 15px" aria-valuenow="18" aria-valuemin="0" aria-valuemax="100"> Développer la partie back-end d’une application web ou web mobile </div>
+                    <div class="progress-bar progress-bar-striped bg-secondary" role="progressbar" style="width: 28%; height: 30px; font-size: 15px" aria-valuenow="18" aria-valuemin="0" aria-valuemax="100"> Développer la partie back-end d’une application web ou web mobile </div>
                   </div>
                   <br>
                   <div class="progress h-100 ">
@@ -87,7 +87,7 @@ export function creerApprenants(infos, position){
                   </div>
                   <br>
                   <div class="progress h-100">
-                    <div class="progress-bar progress-bar-striped bg-dark" role="progressbar" style="width: 35%; height: 30px; font-size: 15px" aria-valuenow="20" aria-valuemin="0" aria-valuemax="100"> Elaborer et mettre en œuvre des composants dans une application de gestion de contenu ou e-commerce </div>
+                    <div class="progress-bar progress-bar-striped bg-dark" role="progressbar" style="width: 43%; height: 30px; font-size: 15px" aria-valuenow="20" aria-valuemin="0" aria-valuemax="100"> Elaborer et mettre en œuvre des composants dans une application de gestion de contenu ou e-commerce </div>
                   </div>
                   <br>
                   <div class="progress h-100">

@@ -10,22 +10,23 @@ export function valider(){
     const inputBiographieSaisi = inputBiographie.value
 
     if (inputNomSaisi.trim().length < 2) {
-        //event.preventDefault();
+        inputNom.classList.add("invalid")
         alert("Tapez un nom valide.");
         inputNom.focus();
-    }
-    if (inputPrenomSaisi.trim().length < 2) {
-        //event.preventDefault();
-        alert("Pensez à taper un prenom !");
-        inputPrenom.focus();
+      return
+     }
+    if (inputPrenomSaisi.trim().length < 2){
+             //event.preventDefault();
+             inputPrenom.classList.add("invalid")
+             alert("Pensez à taper un prenom !");
+             inputPrenom.focus();
+         return
     } 
-    if (inputNIveau.value == ""){
-        //event.preventDefault();
-        alert("Veillez choisir un nievau!");
+    if (inputBiographieSaisi.trim().length < 5){
+              inputBiographie.classList.add("invalid")
+              alert("Donner votre biographie !");
+              inputBiographie.focus();
+        return
     }
-    if (inputBiographieSaisi.trim().length < 3){
-        //event.preventDefault();
-        alert("Donner votre biographie !");
-        inputBiographie.focus();
-    }
+    
   }

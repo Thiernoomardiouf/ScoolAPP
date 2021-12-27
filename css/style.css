@@ -1,6 +1,10 @@
-h1, h3{
+h1{
     text-align: center;
-    color: #3dca50;
+    color: white;
+}
+h3{
+    text-align: center;
+    color: black;
 }
 .img-fluid{
     width: 40px;
@@ -18,7 +22,7 @@ form label{
     font-size: 30px;
 }
 header div{
-    background-color: #9493ad;
+    background-color: #ce0033;
     height: 60px;
 }
 :placeholder-shown{
@@ -36,4 +40,10 @@ input{
 }
 textarea{
     height: 250px;
+}
+#formeHelp{
+    font-size: 18px;
+}
+.card-link{
+    font-size: 20px;
 }
