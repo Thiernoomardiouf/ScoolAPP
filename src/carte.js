@@ -5,7 +5,7 @@ const inputPrenom = document.querySelector("#prenom")
 const inputNIveau = document.querySelector("#niveau")
 const inputBiographie = document.querySelector("#biographie")
 
-export function creerCarte(infos, position){
+export function creerCarte(infos, position, ind){
 
     const idButtonModifier = "btn_valider-" + Math.random()
     const idButtonSupprimer = "btn_refuser-" + Math.random()
@@ -78,6 +78,18 @@ export function creerCarte(infos, position){
               Biographie.textContent = inputBiographie.value
               Niveau.textContent = inputNIveau.value
               
+              // On creer un nouveau element qui contient les modifications 
+              const nouvelleInfos = {
+                nom : inputNom.value ,
+                prenom : inputPrenom.value,
+                niveau: inputNIveau.value,
+                biographie : inputBiographie.value,
+                }
+
+              // On remplace l'élément supprimer dans le tableau 
+              tab.splice(ind, 1, nouvelleInfos);
+              console.log(tab)
+
               // Aprés modification on supprime le bouton 
               editButton.remove(editButton)
               
@@ -94,7 +106,9 @@ export function creerCarte(infos, position){
       bouttonSupprimer.addEventListener("click", (event)=>{
         event.preventDefault()
         idCarde.parentNode.removeChild(idCarde);
-        tab.splice()
+        // On supprime l'élément dans le tableau 
+        tab.splice(ind, 1)
+        console.log(tab)
         return false;
       })
 

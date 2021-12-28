@@ -1,7 +1,6 @@
 const API_KEY ="eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJyb2xlIjoiYW5vbiIsImlhdCI6MTY0MDMyMTM3NCwiZXhwIjoxOTU1ODk3Mzc0fQ.4OG4cncqE_T0C_IQfAqDkvJz66PpQXP-NPxF7_joiKQ"
 const API_URL = "https://qrhfvjqerilazypfxbcu.supabase.co/rest/v1/infos"
 
-import { valider } from './valideForm.js';
 import { creerCarte } from './carte.js';
 import { creerApprenants } from './apprenants.js';
 
@@ -17,7 +16,7 @@ const btnSauvegarder = document.querySelector("#btn-sauvegarder")
 const principal = document.querySelector("main")
 
 //Tableau pour stocker les cartes
-export let tab = []
+export let tab = [] 
 
 // VERIFICATION DES MOTS SAISIS
 inputBiographie.addEventListener("input", (event) => {
@@ -52,6 +51,7 @@ inputBiographie.addEventListener("input", (event) => {
 btnAjouter.addEventListener("click", (event)=> {
     event.preventDefault()
 
+    let indice
     // Récupération des valeurs saisies du formulaire
     const inputNomSaisi = inputNom.value
     const inputPrenomSaisi = inputPrenom.value
@@ -59,7 +59,7 @@ btnAjouter.addEventListener("click", (event)=> {
     const inputNIveauSaisi = inputNIveau.value
     
     // Vérificaation des informations du formulaire
-    // valider(); 
+    
     if (inputPrenomSaisi.trim().length < 4 || inputNomSaisi.trim().length < 4 || inputBiographieSaisi.trim().length < 8 || inputNIveauSaisi.trim().length < 3) {
       inputNom.classList.add("invalid")
       inputPrenom.classList.add("invalid")
@@ -71,20 +71,21 @@ btnAjouter.addEventListener("click", (event)=> {
     
     // Création de l'element à mettre dans la carte 
     const nouvelleInfos = {
-    nom : inputNomSaisi ,
-    prenom : inputPrenomSaisi,
-    niveau: inputNIveauSaisi,
-    biographie : inputBiographieSaisi,
+      nom : inputNomSaisi ,
+      prenom : inputPrenomSaisi,
+      niveau: inputNIveauSaisi,
+      biographie : inputBiographieSaisi,
     }
 
     tab.push(nouvelleInfos)
+    indice = tab.indexOf(nouvelleInfos)
+    console.log(indice)
 
     console.log(tab)
-    console.log(tab[0].nom)
-
+    
     
     // Appel de la fonction pour creer une nouvelle carte
-    creerCarte(nouvelleInfos, propositionElement)
+    creerCarte(nouvelleInfos, propositionElement, indice)
 
     inputNom.value = ""
     inputPrenom.value = ""
@@ -97,7 +98,7 @@ btnAjouter.addEventListener("click", (event)=> {
 
 // Sauvegarde des données du carte sur la bases de données 
 btnSauvegarder.addEventListener("click", (event)=>{
-
+   event.preventDefault()
     // on vide la page
    principal.innerHTML = "" 
    // on creer un tutre
