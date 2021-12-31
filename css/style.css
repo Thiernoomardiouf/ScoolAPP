@@ -53,10 +53,10 @@ select option{
     font-size: 20px;
 }
 input{
-    height: 50px;
+    height: 45px;
 }
 textarea{
-    height: 250px;
+    height: 200px;
 }
 #formeHelp{
     font-size: 18px;
