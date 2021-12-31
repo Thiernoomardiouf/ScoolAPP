@@ -17,7 +17,7 @@ export function creerApprenants(infos, position){
         <div class="card mb-3 m-2" style="width: 500px; height: 200px; border-radius: 15px;" >
         <div class="row g-0">
           <div class="col-md-4">
-          <img src="src/image/moi.png" class="img-fluid rounded-start w-100" alt="..." style="border-radius: 5px; height: 200px;">
+          <img src="src/image/${infos.photo}" class="img-fluid rounded-start w-100" alt="..." style="border-radius: 5px; height: 200px;">
           </div>
           <div class="col-md-8">
             <div class="card-body">
@@ -50,7 +50,7 @@ export function creerApprenants(infos, position){
             <div class="card mb-3 m-5" style="max-width: 1500px; max-height: 280px; border-radius: 15px; border: none" >
             <div class="row g-0">
               <div class="col-md-4">
-              <img src="src/image/moi.png" class="img-fluid rounded-start w-100 h-50" alt="..." style=" border-radius: 5px;">
+              <img src="src/image/${infos.photo}" class="img-fluid rounded-start w-100 h-100" alt="..." style=" border-radius: 5px; max-height: 280px;">
               </div>
               <div class="col-md-8 text-center my-2">
                 <div class="card-body">

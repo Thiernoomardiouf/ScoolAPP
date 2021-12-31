@@ -32,24 +32,26 @@
         <div class="container-fluid">
          <div class="row mb-2 p-3">
             <div class="col">
-                    <form>
+                    <form id="form">
                         <div class="mb-3">
                             <label for="nom" class="form-label">Nom</label>
                             <input
                                 type="text"
-                                class="form-control"
+                                class="form-control controle"
                                 id="nom"
                                 name="nom"
                                 placeholder="Votre nom......"
+                                required pattern="[0-9a-zA-Z-\.]{3,12}"
                                 aria-describedby="nomHelp"
                             />
                             <label for="nom" class="form-label">Prenom</label>
                             <input
                                 type="text"
-                                class="form-control"
+                                class="form-control controle"
                                 id="prenom"
                                 name="titre"
                                 placeholder="Votre prenom......"
+                                required pattern="[0-9a-zA-Z-\.]{3,12}"
                                 aria-describedby="prenomHelp"
                             />
                             <label for="nom" class="form-label">Niveau d'étude</label>
@@ -64,21 +66,22 @@
                                 Merci de donner de informations 
                                     pour ce formulaire
                             </div>
-                        <!--     <div>
-                                <label for="avatar">Choisir une photo:</label> <br>
-                                <input type="file" id="avatar" name="avatar" accept="image/png, image/jpeg">
-                            </div> -->
                         </div>
                         <div class="mb-3">
                             <label for="biographie" class="form-label"
                                 >Biographie</label
                             >
                             <textarea
-                                class="form-control"
+                                class="form-control controle"
                                 id="biographie"
                                 name="suggestion"
+                                required pattern="[0-9a-zA-Z-\.]{6,130}"
                                 rows="3"
                             ></textarea>
+                            <div class="mb-3">
+                                <label for="formFile" class="form-label">Choisir une photo</label>
+                                <input class="form-control" type="file" id="photo" name="avatar" accept="image/png, image/jpeg">
+                            </div>
                             <p id="limite-text">
                                 Contenu saisi
                                 <span id="text-progress">00 </span> / 130

@@ -53,7 +53,7 @@ select option{
     font-size: 20px;
 }
 input{
-    height: 60px;
+    height: 50px;
 }
 textarea{
     height: 250px;
@@ -63,4 +63,10 @@ textarea{
 }
 .card-link{
     font-size: 20px;
+}
+.invalid{
+    border-color: green;
+}
+#photo{
+    height: 38px;
 }

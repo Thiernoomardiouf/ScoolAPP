@@ -9,6 +9,7 @@ const inputNom = document.querySelector("#nom")
 const inputPrenom = document.querySelector("#prenom")
 const inputNIveau = document.querySelector("#niveau")
 const inputBiographie = document.querySelector("#biographie")
+const photo = document.querySelector("#photo")
 const btnAjouter = document.querySelector("#btn-ajouter")
 
 const propositionElement = document.querySelector("#list-apprenants")
@@ -57,43 +58,50 @@ btnAjouter.addEventListener("click", (event)=> {
     const inputPrenomSaisi = inputPrenom.value
     const inputBiographieSaisi = inputBiographie.value
     const inputNIveauSaisi = inputNIveau.value
+    const image = photo.files[0].name
     
     // Vérificaation des informations du formulaire
-    
-    if (inputPrenomSaisi.trim().length < 4 || inputNomSaisi.trim().length < 4 || inputBiographieSaisi.trim().length < 8 || inputNIveauSaisi.trim().length < 3) {
-      inputNom.classList.add("invalid")
-      inputPrenom.classList.add("invalid")
-      inputNIveau.classList.add("invalid")
-      inputBiographie.classList.add("invalid")
-      alert("Merci de saisir des informations correctes")
-      return
+
+    if(inputNomSaisi.trim().length < 4){
+        alert("Tapez un nom valide.");
+        inputNom.classList.add("invalid")
+        inputNom.focus();
+        return
+       }else if(inputPrenomSaisi.trim().length < 4){
+        alert("Donner un prénnom correcte")
+        inputPrenom.classList.add("invalid")
+        inputPrenom.focus()
+        return
+       }else if (inputNIveauSaisi.trim().length < 3){
+         alert("Veillez choisir le niveau de l'apprenant")
+         return
+       }else if(inputBiographieSaisi.trim().length < 8){
+        alert("Merci de saisir des informations ")
+        inputBiographie.focus()
+        inputBiographie.classList.add("invalid")
+        return
+       }else{
+      // Création de l'element à mettre dans la carte 
+          const nouvelleInfos = {
+            nom : inputNomSaisi ,
+            prenom : inputPrenomSaisi,
+            niveau: inputNIveauSaisi,
+            biographie : inputBiographieSaisi,
+            photo : image, 
+          }
+          // Ajout de l'element dans le tableau 
+          tab.push(nouvelleInfos)
+          indice = tab.indexOf(nouvelleInfos)
+          console.log(indice)
+
+          console.log(tab)
+           
+          // Appel de la fonction pour creer une nouvelle carte
+          creerCarte(nouvelleInfos, propositionElement, indice)
+
+          document.getElementById("form").reset()
     }
     
-    // Création de l'element à mettre dans la carte 
-    const nouvelleInfos = {
-      nom : inputNomSaisi ,
-      prenom : inputPrenomSaisi,
-      niveau: inputNIveauSaisi,
-      biographie : inputBiographieSaisi,
-    }
-
-    tab.push(nouvelleInfos)
-    indice = tab.indexOf(nouvelleInfos)
-    console.log(indice)
-
-    console.log(tab)
-    
-    
-    // Appel de la fonction pour creer une nouvelle carte
-    creerCarte(nouvelleInfos, propositionElement, indice)
-
-    inputNom.value = ""
-    inputPrenom.value = ""
-    inputBiographie.value = ""
-    inputNIveau.value = ""
-  
-    
-
 });
 
 // Sauvegarde des données du carte sur la bases de données 
@@ -114,8 +122,6 @@ btnSauvegarder.addEventListener("click", (event)=>{
    div.classList.add("d-flex")
 
    titre.appendChild(div)
-
-
 
    // on ajoute tout les élements du tableau dans la base de données
    tab.forEach((apprenant)=>{
@@ -152,3 +158,5 @@ btnSauvegarder.addEventListener("click", (event)=>{
               })
 
     })
+   
+   

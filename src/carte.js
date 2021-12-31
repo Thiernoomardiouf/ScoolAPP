@@ -4,17 +4,23 @@ const inputNom = document.querySelector("#nom")
 const inputPrenom = document.querySelector("#prenom")
 const inputNIveau = document.querySelector("#niveau")
 const inputBiographie = document.querySelector("#biographie")
+const photo = document.querySelector("#photo")
+let i = 0
 
 export function creerCarte(infos, position, ind){
 
-    const idButtonModifier = "btn_valider-" + Math.random()
-    const idButtonSupprimer = "btn_refuser-" + Math.random()
-    const idCard = "btn-card" + Math.random()
-    const idBiographie = "btn_biographie-" + Math.random()
-    const idNiveau = "btn_niveau-" + Math.random()
-    const idPrenom = "btn_prenom-" + Math.random()
-    const idNom = "btn_nom-" + Math.random()
-
+    const idButtonModifier = "btn_valider-" + i
+    const idButtonSupprimer = "btn_refuser-" + i
+    const idCard = "btn-card" + i
+    const idBiographie = "btn_biographie-" + i
+    const idNiveau = "btn_niveau-" + i
+    const idPrenom = "btn_prenom-" + i
+    const idNom = "btn_nom-" + i
+  
+    //On recupére l'image
+    
+    const image = photo.files[0].name
+    
     // On creer une carte pour chaque apprenants 
     position.insertAdjacentHTML(
         "beforeend",
@@ -22,9 +28,8 @@ export function creerCarte(infos, position, ind){
         <div id =${idCard}>
         <div class="card mb-3 m-2" style="max-width: 1000px; max-height: 230px; border-radius: 15px;" >
         <div class="row g-0">
-          <div class="col-md-4">
-       
-          <img src="src/image/moi.png" class="img-fluid rounded-start w-100" alt="..." style="height: 230px; border-radius: 5px;">
+          <div class="col-md-4"> 
+          <img src="src/image/${image}" class="img-fluid rounded-start w-100" alt="..." style="height: 230px; border-radius: 5px;">
           </div>
           <div class="col-md-8">
             <div class="card-body">
@@ -67,7 +72,7 @@ export function creerCarte(infos, position, ind){
           editButton.style.width = "90px"
           editButton.style.height = "50px"
           editButton.style.color = "white"
-          document.querySelector("form").appendChild(editButton)
+          document.querySelector("form").appendChild(editButton) 
           
           // on écoute le bouton modifier
           editButton.addEventListener("click", (event)=>{
@@ -84,6 +89,7 @@ export function creerCarte(infos, position, ind){
                 prenom : inputPrenom.value,
                 niveau: inputNIveau.value,
                 biographie : inputBiographie.value,
+                photo : image, 
                 }
 
               // On remplace l'élément supprimer dans le tableau 
@@ -94,10 +100,7 @@ export function creerCarte(infos, position, ind){
               editButton.remove(editButton)
               
               // on vide a nouveau le formulaire 
-              inputNom.value = ""
-              inputPrenom.value = ""
-              inputBiographie.value = ""
-              inputNIveau.value = ""
+              document.getElementById("form").reset()
 
           })
 
@@ -111,6 +114,7 @@ export function creerCarte(infos, position, ind){
         console.log(tab)
         return false;
       })
-
+   i = i + 1
+   console.log(i)
 
 }
