@@ -5,7 +5,7 @@ const inputPrenom = document.querySelector("#prenom")
 const inputNIveau = document.querySelector("#niveau")
 const inputBiographie = document.querySelector("#biographie")
 const photo = document.querySelector("#photo")
-let i = 0
+export let i = 0
 
 export function creerCarte(infos, position, ind){
 
@@ -16,10 +16,14 @@ export function creerCarte(infos, position, ind){
     const idNiveau = "btn_niveau-" + i
     const idPrenom = "btn_prenom-" + i
     const idNom = "btn_nom-" + i
+    const idImage = "btn_image-" + i
   
     //On recupére l'image
     
     const image = photo.files[0].name
+    console.log(photo.value)
+    //const url = URL.createObjectURL(photo.value)
+    //console.log(url)
     
     // On creer une carte pour chaque apprenants 
     position.insertAdjacentHTML(
@@ -29,7 +33,7 @@ export function creerCarte(infos, position, ind){
         <div class="card mb-3 m-2" style="max-width: 1000px; max-height: 230px; border-radius: 15px;" >
         <div class="row g-0">
           <div class="col-md-4"> 
-          <img src="src/image/${image}" class="img-fluid rounded-start w-100" alt="..." style="height: 230px; border-radius: 5px;">
+          <img  id=${idImage} class="img-fluid rounded-start w-100" alt="..." style="height: 230px; border-radius: 5px;">
           </div>
           <div class="col-md-8">
             <div class="card-body">
@@ -45,6 +49,14 @@ export function creerCarte(infos, position, ind){
       </div>
       `
       )
+       
+      const inputImage = document.getElementById(idImage)
+      var fReader = new FileReader();
+      fReader.readAsDataURL(photo.files[0]);
+      fReader.onloadend = function(event){
+        inputImage.src = event.target.result;
+       // image = inputImage.src
+      }
       
       // Récuperation des bouttons modifier et supprimer
       const bouttonModifier = document.getElementById(idButtonModifier)
@@ -115,6 +127,5 @@ export function creerCarte(infos, position, ind){
         return false;
       })
    i = i + 1
-   console.log(i)
 
 }

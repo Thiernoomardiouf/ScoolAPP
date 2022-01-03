@@ -14,10 +14,14 @@ const btnAjouter = document.querySelector("#btn-ajouter")
 
 const propositionElement = document.querySelector("#list-apprenants")
 const btnSauvegarder = document.querySelector("#btn-sauvegarder")
+const lister = document.querySelector("#listes")
 const principal = document.querySelector("main")
+const input = document.querySelector("input")
+
 
 //Tableau pour stocker les cartes
 export let tab = [] 
+
 
 // VERIFICATION DES MOTS SAISIS
 inputBiographie.addEventListener("input", (event) => {
@@ -48,6 +52,27 @@ inputBiographie.addEventListener("input", (event) => {
   }
 })
 
+input.addEventListener("click",()=>{
+
+  const inputNomSaisi = inputNom.value
+  const inputPrenomSaisi = inputPrenom.value
+  const inputBiographieSaisi = inputBiographie.value
+  const inputNIveauSaisi = inputNIveau.value
+  const nouvelle = {
+    nom : inputNomSaisi ,
+    prenom : inputPrenomSaisi,
+    niveau: inputNIveauSaisi,
+    biographie : inputBiographieSaisi,
+  }
+  localStorage.setItem("nouvelle", JSON.stringify(nouvelle))
+  const local = JSON.parse(localStorage.getItem("nouvelle"));
+
+  inputNom.value = local.nom
+  inputPrenom.value = local.prenom
+  inputBiographie.value = local.biographie
+  inputNIveau.value = local.niveau
+})
+
 // On n'ecoute l'événment sur le formulaire
 btnAjouter.addEventListener("click", (event)=> {
     event.preventDefault()
@@ -58,7 +83,6 @@ btnAjouter.addEventListener("click", (event)=> {
     const inputPrenomSaisi = inputPrenom.value
     const inputBiographieSaisi = inputBiographie.value
     const inputNIveauSaisi = inputNIveau.value
-    const image = photo.files[0].name
     
     // Vérificaation des informations du formulaire
 
@@ -80,8 +104,13 @@ btnAjouter.addEventListener("click", (event)=> {
         inputBiographie.focus()
         inputBiographie.classList.add("invalid")
         return
+       }else if (photo.files.length == 0){
+        alert("Veillez choisir une image")
+        return
        }else{
-      // Création de l'element à mettre dans la carte 
+          // On recupére le nom de l'image 
+          const image = photo.files[0].name
+          // Création de l'element à mettre dans la carte
           const nouvelleInfos = {
             nom : inputNomSaisi ,
             prenom : inputPrenomSaisi,
@@ -89,6 +118,7 @@ btnAjouter.addEventListener("click", (event)=> {
             biographie : inputBiographieSaisi,
             photo : image, 
           }
+
           // Ajout de l'element dans le tableau 
           tab.push(nouvelleInfos)
           indice = tab.indexOf(nouvelleInfos)
@@ -101,8 +131,9 @@ btnAjouter.addEventListener("click", (event)=> {
 
           document.getElementById("form").reset()
     }
-    
+    localStorage.clear();
 });
+
 
 // Sauvegarde des données du carte sur la bases de données 
 btnSauvegarder.addEventListener("click", (event)=>{
@@ -157,6 +188,37 @@ btnSauvegarder.addEventListener("click", (event)=>{
                 })
               })
 
+    })
+
+    lister.addEventListener("click", (event)=>{
+      event.preventDefault()
+      // on vide la page
+     principal.innerHTML = "" 
+     // on creer un tutre
+     const titre = document.createElement("h3")
+     titre.classList.add("p-5")
+     titre.innerText = "La liste des apprenants"
+     principal.appendChild(titre)
+  
+     const div = document.createElement("div")
+  
+     div.classList.add("m-5")
+     div.style.flexWrap = "wrap"
+     div.classList.add("d-flex")
+  
+     titre.appendChild(div)
+  
+      fetch(API_URL, {
+        headers: {
+          apikey: API_KEY,
+        },
+      })
+        .then((response) => response.json())
+        .then((infos) => {
+          infos.forEach((info) => {
+            creerApprenants(info, div) 
+          })
+        })
     })
    
    
