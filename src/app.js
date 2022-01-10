@@ -5,11 +5,11 @@ import { creerCarte } from './carte.js';
 import { creerApprenants } from './apprenants.js';
 
 // Recuperation des élément du formulaire
-const inputNom = document.querySelector("#nom")
-const inputPrenom = document.querySelector("#prenom")
-const inputNIveau = document.querySelector("#niveau")
-const inputBiographie = document.querySelector("#biographie")
-const photo = document.querySelector("#photo")
+export const inputNom = document.querySelector("#nom")
+export const inputPrenom = document.querySelector("#prenom")
+export const inputNIveau = document.querySelector("#niveau")
+export const inputBiographie = document.querySelector("#biographie")
+export const photo = document.querySelector("#photo")
 const btnAjouter = document.querySelector("#btn-ajouter")
 
 const propositionElement = document.querySelector("#list-apprenants")
@@ -17,6 +17,11 @@ const btnSauvegarder = document.querySelector("#btn-sauvegarder")
 const lister = document.querySelector("#listes")
 const principal = document.querySelector("main")
 const input = document.querySelector("input")
+
+export const comp1 = document.querySelector("#maquette")
+export const comp2 = document.querySelector("#back-end")
+export const comp3 = document.querySelector("#statique")
+export const comp4 = document.querySelector("#donnes")
 
 
 //Tableau pour stocker les cartes
@@ -58,6 +63,7 @@ input.addEventListener("click",()=>{
   const inputPrenomSaisi = inputPrenom.value
   const inputBiographieSaisi = inputBiographie.value
   const inputNIveauSaisi = inputNIveau.value
+
   const nouvelle = {
     nom : inputNomSaisi ,
     prenom : inputPrenomSaisi,
@@ -83,6 +89,10 @@ btnAjouter.addEventListener("click", (event)=> {
     const inputPrenomSaisi = inputPrenom.value
     const inputBiographieSaisi = inputBiographie.value
     const inputNIveauSaisi = inputNIveau.value
+    const inputComp1 = comp1.value
+    const inputComp2 = comp2.value
+    const inputComp3 = comp3.value
+    const inputComp4 = comp4.value
     
     // Vérificaation des informations du formulaire
 
@@ -104,6 +114,21 @@ btnAjouter.addEventListener("click", (event)=> {
         inputBiographie.focus()
         inputBiographie.classList.add("invalid")
         return
+       }else if(inputComp1 < 0 || inputComp1 > 100){  
+        alert("Veillez saisir une compétences valide ")
+        inputComp1.focus()
+        inputComp1.classList.add("invalid")
+        return
+       }else if(inputComp2 < 0 || inputComp2 > 100){  
+        alert("Veillez saisir une compétences valide ")
+        inputComp2.focus()
+        inputComp2.classList.add("invalid")
+        return
+       }else  if(inputComp3 < 0 || inputComp3 > 100 ){  
+        alert("Veillez saisir une compétences valide ")
+        inputComp3.focus()
+        inputComp3.classList.add("invalid")
+        return                                       
        }else if (photo.files.length == 0){
         alert("Veillez choisir une image")
         return
@@ -116,7 +141,11 @@ btnAjouter.addEventListener("click", (event)=> {
             prenom : inputPrenomSaisi,
             niveau: inputNIveauSaisi,
             biographie : inputBiographieSaisi,
-            photo : image, 
+            photo : image,
+            maquette: inputComp1,
+            back: inputComp2,
+            statique: inputComp3,
+            donnees: inputComp4,
           }
 
           // Ajout de l'element dans le tableau 

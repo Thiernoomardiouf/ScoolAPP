@@ -9,7 +9,7 @@ const principal = document.querySelector("main")
 export function creerApprenants(infos, position){
     const idButtonDetails = "btn_datails-" + infos.id
     const idCard = "btn-card-" + infos.id
- 
+        
     position.insertAdjacentHTML(
         "beforeend",
         `
@@ -62,40 +62,25 @@ export function creerApprenants(infos, position){
             </div>
           </div>
           
+          <div class= "m-5">
+              <div class="progress h-100">
+                <div class="progress-bar progress-bar-striped" role="progressbar" style="width: ${infos.maquette}%; height: 30px; font-size: 15px" aria-valuenow="15" aria-valuemin="0" aria-valuemax="100"> Maquettage une application </div>
+              </div>
+              <br>
+              <div class="progress h-100">
+                <div class="progress-bar progress-bar-striped " role="progressbar" style="width: ${infos.back}%; height: 30px; font-size: 15px" aria-valuenow="18" aria-valuemin="0" aria-valuemax="100"> Développer la partie back-end d’une application web et mobile </div>
+              </div>
+              <br>
+              <div class="progress h-100 ">
+                <div class="progress-bar progress-bar-striped" role="progressbar" style="width: ${infos.statique}%; height: 30px; font-size: 15px" aria-valuenow="18" aria-valuemin="0" aria-valuemax="100"> Développer une interface statique </div>
+              </div>
+              <br>
+              <div class="progress h-100 ">
+                <div class="progress-bar progress-bar-striped" role="progressbar" style="width: ${infos.donnees}%; height: 30px; font-size: 15px" aria-valuenow="18" aria-valuemin="0" aria-valuemax="100"> Développer une interface statique </div>
+              </div>
+          </div>
           `
           )
-          
-          //On affiche la progression des compétences 
-
-          if (infos.niveau == "Avancé"){
-
-               pogressBarre("50%", "65%", "70%", "75%", "78%", "83%", "88%", "94%")
-              
-          }
-
-          if (infos.niveau == "Trés Avancé"){
-
-            pogressBarre("83%", "68%", "76%", "83%", "85%", "89%", "95%", "100%")
-           
-          }
-
-          if (infos.niveau == "Intérmédiaire"){
-
-            pogressBarre("33%", "58%", "38%", "48%", "55%", "69%", "75%", "85%")
-           
-          }
-
-          if (infos.niveau == "Moyen"){
-
-            pogressBarre("33%", "48%", "36%", "36%", "50%", "59%", "50%", "60%")
-           
-          }
-
-          if (infos.niveau == "Débutant"){
-
-            pogressBarre("23%", "28%", "30%", "30%", "45%", "50%", "45%", "40%")
-           
-          }
 
       })
 

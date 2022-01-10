@@ -1,72 +1,72 @@
 * {
-    box-sizing: border-box;
-    font-family: "Lucida Sans", "Lucida Sans Regular", "Lucida Grande",
-      "Lucida Sans Unicode", Geneva, Verdana, sans-serif;
-  }
-  
-  html,
-  body {
-    margin: 0;
-    padding: 0;
-  }
-  body {
-    justify-content: center;
-    align-items: center;
-    height: 100vh;
-  }
+  box-sizing: border-box;
+  font-family: "Lucida Sans", "Lucida Sans Regular", "Lucida Grande",
+    "Lucida Sans Unicode", Geneva, Verdana, sans-serif;
+}
+
+html,
+body {
+  margin: 0;
+  padding: 0;
+}
+body {
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+}
 h1{
-    text-align: center;
-    color: white;
-   /*  margin-right: 583px; */
+  text-align: center;
+  color: white;
+  /*  margin-right: 583px; */
 }
-h3{
-    text-align: center;
-    color: black;
+h3 {
+  text-align: center;
+  color: black;
 }
-.img-fluid{
-    width: 40px;
-    height: 40px;
+.img-fluid {
+  width: 40px;
+  height: 40px;
 }
-h5{
-    color: black;
-    font-size: 23px;
+h5 {
+  color: black;
+  font-size: 23px;
 }
-p{
-    font-size: 20px;
-    color: black;
+p {
+  font-size: 20px;
+  color: black;
 }
-form label{
-    font-size: 30px;
+form label {
+  font-size: 20px;
 }
-header div{
-    background-color: #ce0033;
-    height: 60px;
+header div {
+  background-color: #ce0033;
+  height: 60px;
 }
-:placeholder-shown{
-    font-size: 20px;
+:placeholder-shown {
+  font-size: 15px;
 }
-select{
-    font-size: 20px;
-    height: 60px;
+select {
+  font-size: 15px;
+  height: 40px;
 }
-select option{
-    font-size: 20px;
+select option {
+  font-size: 20px;
 }
-input{
-    height: 45px;
+input {
+  height: 40px;
 }
-textarea{
-    height: 200px;
+textarea {
+  height: 80px;
 }
-#formeHelp{
-    font-size: 18px;
+#formeHelp {
+  font-size: 18px;
 }
-.card-link{
-    font-size: 20px;
+.card-link {
+  font-size: 20px;
 }
-.invalid{
-    border-color: green;
+.invalid {
+  border-color: green;
 }
-#photo{
-    height: 38px;
+#photo {
+  height: 38px;
 }

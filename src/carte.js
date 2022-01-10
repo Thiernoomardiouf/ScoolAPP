@@ -1,10 +1,5 @@
-import { tab } from "./app"
-// Recuperation des élément du formulaire
-const inputNom = document.querySelector("#nom")
-const inputPrenom = document.querySelector("#prenom")
-const inputNIveau = document.querySelector("#niveau")
-const inputBiographie = document.querySelector("#biographie")
-const photo = document.querySelector("#photo")
+import { tab, inputNom, inputPrenom, inputNIveau, inputBiographie, photo, comp1, comp2, comp3, comp4 } from "./app"
+
 export let i = 0
 
 export function creerCarte(infos, position, ind){
@@ -19,11 +14,7 @@ export function creerCarte(infos, position, ind){
     const idImage = "btn_image-" + i
   
     //On recupére l'image
-    
     const image = photo.files[0].name
-    console.log(photo.value)
-    //const url = URL.createObjectURL(photo.value)
-    //console.log(url)
     
     // On creer une carte pour chaque apprenants 
     position.insertAdjacentHTML(
@@ -55,7 +46,6 @@ export function creerCarte(infos, position, ind){
       fReader.readAsDataURL(photo.files[0]);
       fReader.onloadend = function(event){
         inputImage.src = event.target.result;
-       // image = inputImage.src
       }
       
       // Récuperation des bouttons modifier et supprimer
@@ -75,6 +65,10 @@ export function creerCarte(infos, position, ind){
           inputPrenom.value = infos.prenom
           inputBiographie.value = infos.biographie
           inputNIveau.value = infos.niveau
+          comp1.value = infos.maquette
+          comp2.value = infos.back
+          comp3.value = infos.statique
+          comp4.value = infos.donnees
           
           // on creer un bouton pour modifier les nouvellles informations saisies
           const editButton = document.createElement("button");
@@ -97,11 +91,15 @@ export function creerCarte(infos, position, ind){
               
               // On creer un nouveau element qui contient les modifications 
               const nouvelleInfos = {
-                nom : inputNom.value ,
-                prenom : inputPrenom.value,
-                niveau: inputNIveau.value,
-                biographie : inputBiographie.value,
-                photo : image, 
+                  nom : inputNom.value ,
+                  prenom : inputPrenom.value,
+                  niveau: inputNIveau.value,
+                  biographie : inputBiographie.value,
+                  photo : image, 
+                  maquette: comp1.value,
+                  back: comp2.value,
+                  statique: comp3.value,
+                  donnees: comp4.value,
                 }
 
               // On remplace l'élément supprimer dans le tableau 
